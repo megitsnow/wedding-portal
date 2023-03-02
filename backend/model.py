@@ -24,12 +24,10 @@ class User(db.Model):
                 'password': self.password,
                 'img': self.img}
 
-    likes = db.relationship("Like", back_populates="user")
-
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}>"
     
-def connect_to_db(flask_app, db_uri="postgresql:///game_tracker", echo=True):
+def connect_to_db(flask_app, db_uri="postgresql:///wedding_portal_database", echo=True):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
